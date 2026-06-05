@@ -24,6 +24,19 @@ npm run preview  # 빌드 결과 미리보기
 동작합니다. 외부 네트워크가 필요한 건 **'다크 지도'/'밝은 지도' 모드의 CARTO 지도 타일뿐**이고,
 기본 '추상' 모드는 타일을 쓰지 않습니다.
 
+## 배포 (GitHub Pages)
+
+`main` 브랜치에 푸시하면 GitHub Actions(`.github/workflows/deploy.yml`)가 빌드 후 자동 배포합니다.
+
+- **라이브 URL**: <https://knu-mobi0224-team4.github.io/flood-traffic-net-web/>
+- **Pages 소스**: Settings → Pages → Source = **GitHub Actions** (REST API로 1회 활성화 완료)
+- `vite.config.js`의 `base`가 `/flood-traffic-net-web/`라서 프로젝트 페이지 하위 경로에서도 에셋이 정상 로드됩니다.
+- 코드를 고쳐 `main`에 푸시할 때마다 워크플로가 다시 돌아 사이트가 갱신됩니다(Actions 탭에서 진행 확인).
+
+> 참고: 이 org에서는 워크플로 기본 `GITHUB_TOKEN`이 Pages 사이트를 *생성*할 권한이 없어
+> (`Resource not accessible by integration`), Pages는 REST API로 한 번만 활성화했습니다.
+> 그 이후의 빌드·배포는 전적으로 워크플로가 처리합니다.
+
 ## 주요 기능
 
 - **지도 (Leaflet)** — 329개 구간을 실제 좌표로 표시. 배경: `추상`(타일 없는 다크) / `다크 지도` / `밝은 지도`.
