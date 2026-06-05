@@ -1,0 +1,17 @@
+node_modules
+dist
+dist-ssr
+*.local
+.DS_Store
+.vite
+*.log
+npm-debug.log*
+
+# Dev-only source dataset (~177MB, incl. cells_full.csv.gz which the web app must
+# never load). The web subset is bundled into src/data/flood-all.json; schema is
+# documented in docs/data-readme.md.
+case_study/
+
+# Source-font download cache for scripts/subset_fonts.py (regenerable; the
+# subset output in src/fonts/ IS committed)
+.font-cache/
